@@ -1,0 +1,9 @@
+Using TensorFlow backend.
+running
+predicting
+['/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/models/sixParallel/input/MAX_C2-001_KSE2_MT_Airyscan Processing_predict.png']
+/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/overpassNet.py:304: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=[<tf.Tenso..., inputs=Tensor("in...)`
+  model = Model(input=inputs, output=[conv5,conv52,conv53,conv54,conv55,conv56,concatenate8])
+2019-04-17 17:39:44.088710: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+/var/spool/slurm/slurmd/job89192/slurm_script: line 4: 83877 Killed                  python -u /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/overpassNet.py -m predict -i /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/models/sixParallel/input/ -o /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/models/sixParallel/output/ -ti /img_list/ -tg /mask_list/ -tidt *.png -gidt *.tif -w /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/instance/models/sixParallel/sixParaWeight.h5 -ps 64 -dt *.png
+slurmstepd-biomix30: error: Exceeded step memory limit at some point.

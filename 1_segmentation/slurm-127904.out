@@ -1,0 +1,4 @@
+  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/dsc_segmentation.py", line 253
+    //meanVal = np.mean(img)
+     ^
+SyntaxError: invalid syntax

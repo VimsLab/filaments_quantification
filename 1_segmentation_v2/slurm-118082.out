@@ -1,0 +1,21 @@
+Using TensorFlow backend.
+running
+['/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/025_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_171253(1)_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/026_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_172427_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/027_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_173758_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/034_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_125115_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/035_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_130606_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-011_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20181218_175024_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-036_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_131511_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-037_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_132947_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-038_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_133956_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-042_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_134809_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-043_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_130007_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-044_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_131836_Maximumintensityprojection.png']
+/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation_v2/dsc_segmentation.py:135: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=[<tf.Tenso..., inputs=Tensor("in...)`
+  model = Model(input=inputs, output=[conv7, conv27, conv37])
+DSC-Unet Loaded
+Traceback (most recent call last):
+  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation_v2/dsc_segmentation.py", line 290, in <module>
+    main(args)
+  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation_v2/dsc_segmentation.py", line 256, in main
+    model.load_weights(weights_path)
+  File "/usr/lib64/python2.7/site-packages/keras/engine/network.py", line 1157, in load_weights
+    with h5py.File(filepath, mode='r') as f:
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 272, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 92, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper (/builddir/build/BUILD/h5py-2.6.0/h5py/_objects.c:2574)
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper (/builddir/build/BUILD/h5py-2.6.0/h5py/_objects.c:2533)
+  File "h5py/h5f.pyx", line 76, in h5py.h5f.open (/builddir/build/BUILD/h5py-2.6.0/h5py/h5f.c:1808)
+IOError: Unable to open file (Unable to open file: name = '/mnt/focus/caplan/yi/codeformt/microtubulequant/1_segmentation/weight_backup/at_weights.h5', errno = 2, error message = 'no such file or directory', flags = 0, o_flags = 0)

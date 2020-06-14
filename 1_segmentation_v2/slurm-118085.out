@@ -1,0 +1,42 @@
+Using TensorFlow backend.
+running
+['/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/025_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_171253(1)_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/026_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_172427_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/027_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190109_173758_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/034_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_125115_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/035_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_130606_Maximumintensityprojection.czi-C=1.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-011_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20181218_175024_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-036_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_131511_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-037_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_132947_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-038_Actin-TagRFP_KSE2-Citrine_FastAiryscan__AiryScanProcessed_20190112_133956_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-042_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_134809_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-043_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_130007_Maximumintensityprojection.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedAt/eval_input/C2-044_Actin-TBS67-TagRFP_FastAiryscan__AiryScanProcessed_20190211_131836_Maximumintensityprojection.png']
+/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation_v2/dsc_segmentation.py:135: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=[<tf.Tenso..., inputs=Tensor("in...)`
+  model = Model(input=inputs, output=[conv7, conv27, conv37])
+DSC-Unet Loaded
+2019-09-18 14:27:06.917771: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)
+DSC-Unet Loaded
+(620, 1052, 3)
+(620, 1052)

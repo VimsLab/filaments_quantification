@@ -1,0 +1,17 @@
+Using TensorFlow backend.
+running
+predicting
+['/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/C2-001_KSE2_MT_Airyscan Processing_Maximum intensity projection_predict.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/C2-002_KSE2_MT_Airyscan Processing_Maximum intensity projection_predict.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/C2-003_TBS67_MT_Airyscan Processing_Maximum intensity projection_predict.png', '/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/C2-004_TBS67_MT_Airyscan Processing_Maximum intensity projection_predict.png']
+/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/
+/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/overpassNet.py:304: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=[<tf.Tenso..., inputs=Tensor("in...)`
+  model = Model(input=inputs, output=[conv5,conv52,conv53,conv54,conv55,conv56,concatenate8])
+2019-08-30 06:10:11.144663: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+C2-001_KSE2_MT_Airyscan Processing_Maximum intensity projection_predict
+Traceback (most recent call last):
+  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/overpassNet.py", line 418, in <module>
+    main(args)
+  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/overpassNet.py", line 405, in main
+    img =  Image.fromarray(img).convert('L')
+  File "/usr/lib64/python2.7/site-packages/PIL/Image.py", line 2492, in fromarray
+    raise TypeError("Cannot handle this data type")
+TypeError: Cannot handle this data type

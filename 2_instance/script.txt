@@ -1,0 +1,1 @@
+ python slurm_run_step2.py -m predict -i /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/input/ -o /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/output/ -w /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/2_instance/models/sixParallel/sixParaWeight.h5

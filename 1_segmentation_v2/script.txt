@@ -1,0 +1,1 @@
+ python slurm_run.py -m predict -i /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedMt/eval_input/ -o /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/models/preTrainedMt/eval_output/ -w /mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/weight_backup/mircrotubule_weights.h5
