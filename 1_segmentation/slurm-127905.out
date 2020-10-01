@@ -1,4 +1,0 @@
-  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/dsc_segmentation.py", line 255
-    //meanVal =  0.10874228924512863159 
-     ^
-SyntaxError: invalid syntax

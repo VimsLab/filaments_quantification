@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/mnt/focus/Caplan/Yi/codeForMt/microtubuleQuant/1_segmentation/dsc_segmentation.py", line 10, in <module>
-    import cv2
-ImportError: No module named cv2

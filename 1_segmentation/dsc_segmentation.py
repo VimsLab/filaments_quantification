@@ -4,10 +4,12 @@
 from __future__ import print_function
 import os, sys, fnmatch, argparse
 import numpy as np
+import io
 from make_patches_MT import *
 from args import get_parser
 from PIL import Image
 import cv2
+from skimage import io
 ##########################
 # Import Keras Libraries #
 ##########################
@@ -17,6 +19,7 @@ from keras.layers import Input, UpSampling2D, Dropout, Concatenate
 from keras.callbacks import ModelCheckpoint, TensorBoard
 from keras import backend as K
 from keras.optimizers import SGD, Adam
+
 
 
 
@@ -292,6 +295,131 @@ def main(args):
 
       anno_img = Image.fromarray(anno_img).convert('RGB')
       anno_img.save(output_path + 'merged/' + name_the_file + '_annotated_mean_std_gaussian_.png', 'PNG')
+
+  elif mode == 'ts': #time series
+      # os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+      import os
+      import imageio
+      from tifffile import TiffFile
+      from tqdm import tqdm
+
+      directory = input_path
+
+      dirs = os.listdir(directory)
+      for idx in tqdm(range(len(dirs))):
+        f = dirs[idx]
+        if f[-3:] != 'tif':
+            continue
+        # import pdb; pdb.set_trace()
+        print(f)
+        fpath = os.path.join(directory, f)
+        # import pdb; pdb.set_trace()
+        file_prefix = os.path.splitext(f)[0]
+        # import pdb; pdb.set_trace()
+        out_dir = os.path.join(output_path, file_prefix)
+        # out_dir = os.path.join('./_2020_kody_data/output_timeseries_anno_test', file_prefix)
+        # import pdb;pdb.set_trace()
+        outdir_stacked = os.path.join(out_dir, 'stacked')
+        outdir_act_mask = os.path.join(out_dir, 'act_mask')
+        # import pdb;pdb.set_trace()
+        if not os.path.exists(outdir_stacked):
+            os.makedirs(outdir_stacked)
+
+        if not os.path.exists(outdir_act_mask):
+            os.makedirs(outdir_act_mask)
+        # import pdb;pdb.set_trace()
+        print ("Working on", file_prefix)
+        with TiffFile(fpath) as tif:
+          tif = tif.asarray()
+
+          # print (tif.shape)
+          # import pdb; pdb.set_trace()
+          num_channels = len(tif.shape)
+          if num_channels == 5:
+              ntimesteps = tif.shape[0]
+              channel_actin = tif[:,:,0,:,:]
+              channel_wall = tif[:,:,1,:,:]
+
+              mip_actin = np.max(channel_actin, axis=1)
+              _, h,w = mip_actin.shape
+          else:
+              ntimesteps = tif.shape[0]
+              mip_actin = tif
+              _, h,w = mip_actin.shape
+
+          tif = mip_actin
+
+          movie_list = []
+          mt_list = []
+          # ntimesteps = 2
+          for timestep in range(ntimesteps):
+            mt_mip = tif[timestep,:, :].astype('float32')
+
+            # import pdb;pdb.set_trace()
+            mt_mip /= 255
+            mt_mip = cv2.GaussianBlur(mt_mip, (5, 5), 0)
+            # mt_mip = mt_mip.astype(np.uint8)
+            # mt_mip = color.rgb2gray(mt_mip)
+
+            original_img = np.array(mt_mip)
+            try:
+                mt_mip -= np.mean(original_img)
+                mt_mip /= np.std(original_img)
+            except:
+                import pdb; pdb.set_trace()
+
+            # mt_mip -= meanVal
+            # mt_mip /= stdVal
+
+
+            mt_mip = mt_mip.reshape(1, mt_mip.shape[0], mt_mip.shape[1], 1)
+
+            model = get_unet(*mt_mip.shape[1:])
+           # model.load_weights('./man/MT_parallel_128_020_030_050_Cross_hourglass_checkpoint_manual.h5')
+            # model.load_weights('./' + targetPath + '/crossUp_2p5.h5') # man_2p5
+            # model.load_weights('//raid1/stromules/yiliu_code/manual/_2020_kody_data/weight/at_weights.h5') # man_2p5
+            # model.load_weights('//raid1/stromules/yiliu_code/manual/nate_patches_2/mean_std_one_image_crossUp_2p5_00000010.h5') # man_2p5
+            model.load_weights(weights_path) # man_2p5
+            
+            im1, im2, out_img = model.predict(mt_mip, batch_size=len(mt_mip))
+            out_img = np.array(out_img)
+
+            out_img = out_img.reshape(mt_mip.shape[1], mt_mip.shape[2])
+            out_img = (out_img-np.min(out_img))/(np.max(out_img)-np.min(out_img)) * 255.0
+
+
+
+            og_img = original_img / np.max(original_img)
+            og_img = (og_img-np.min(og_img))/(np.max(og_img)-np.min(og_img)+0.000000001) * 255.
+
+            where_are_NaNs = np.isnan(og_img)
+            og_img[where_are_NaNs] = 0
+            where_are_NaNs = np.isnan(out_img)
+            out_img[where_are_NaNs] = 0
+
+            blended_im = 0.8*(og_img) + 0.2*out_img
+            stacked_im = np.dstack((blended_im, og_img, og_img))
+            # import pdb;pdb.set_trace()
+            try:
+                io.imsave(outdir_stacked + '/' + str(timestep) + '.tif', stacked_im.astype('uint8'))
+                io.imsave(outdir_stacked + '/' + str(timestep) + '.png', stacked_im.astype('uint8'))
+                io.imsave(outdir_act_mask + '/' + str(timestep) + '.tif', out_img.astype('uint8'))
+                io.imsave(outdir_act_mask + '/' + str(timestep) + '.png', out_img.astype('uint8'))
+            except:
+                import pdb; pdb.set_trace()
+            mt_list.append(out_img)
+            movie_list.append(stacked_im)
+
+          if not os.path.exists(out_dir + '/output_time_series/'):
+            os.makedirs(out_dir + '/output_time_series/')
+          if not os.path.exists(out_dir + '/output_time_series_movie/'):
+            os.makedirs(out_dir + '/output_time_series_movie/')
+          if not os.path.exists(out_dir + '/output_time_series_stacked/'):
+            os.makedirs(out_dir + '/output_time_series_stacked/')
+
+          imageio.mimsave(out_dir + '/output_time_series/' + file_prefix + '_mt.tif', mt_list)
+          imageio.mimsave(out_dir + '/output_time_series_movie/' + file_prefix + '_movie.gif', movie_list, duration=0.2)
+          imageio.mimsave(out_dir + '/output_time_series_stacked/' + file_prefix + '_stacked.tif', movie_list)
 
 
 if __name__ == "__main__":
