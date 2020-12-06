@@ -10,28 +10,27 @@ This repo is based on the following two papers:
 
 Environment Configuration
 ----------------------
-Anaconda enviroment file mtquant.yml
+Anaconda enviroment file **mtquant.yml**
 
-Download
---------
-git clone https://github.com/VimsLab/EllipsoidQuery.git<br>
-cd EllipsoidQuery/RSCNNEQ<br>
-
-Building Kernel
----------------
-mkdir build && cd build<br>
-cmake .. && make<br>
+Matlab for reonnection step (Python version coming out very soon)
 
 Dataset
 -------
-Download and unzip ModelNet40 (415M) in data directory. <br>
-https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip<br>
+We have collected three dataset and listed as follows
 
-Usage: Train
+**Binary Segmentation**
+* Microtubule dataset 
+* Actin dataset
+
+**Instance Label**
+ * Microtubule instance dataset 
+
+Usage: 
 ------------
-sh train_cls.sh<br>
+**Binary Segmentation**
+* Modify config.yaml file, 
+* * **ts** for timeSeries tif data Evaluation
 
-Note: We have trained a Single-Scale-Neighborhood classification model in cls folder, whose training accuracy is 92.55% ('cls/model_cls_ssn_iter_70917_acc_0.925446.pth') <br>
 
 Usage: Evaluation
 -----------------
