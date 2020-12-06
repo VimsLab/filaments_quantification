@@ -29,30 +29,18 @@ Usage:
 ------------
 **Binary Segmentation**
 * Modify config.yaml file, 
-* * **ts** for timeSeries tif data Evaluation
+  * Mode **ts** for timeSeries tif data Evaluation
+  * Mode **train** for training
+  * Mode **predict** for None timeSeries data evaluation
 
-
-Usage: Evaluation
------------------
-Modify cfgs/config_ssn_cls.yaml with *.pth file from cls/ folder with highest accuracy.<br>
-python voting_evaluate_cls.py<br>
-
-Note: You can use our model cls/model_cls_ssn_iter_70917_acc_0.925446.pth as the checkpoint in config_ssn_cls.yaml, and with majority voting you will get an accuracy of 93.51%. Due to randomness the accuracy might vary. <br>
-
-This code has been heaviy borrowed from https://github.com/Yochengliu/Relation-Shape-CNN/ and https://github.com/erikwijmans/Pointnet2_PyTorch <br>
-
-
-To cite our paper please use below bibtex.
+**Separation by Orientation**
+* Modify config.yaml file, 
+  * Mode **train** for training, Training should be conducted on customed synthetic dataset
+  * Mode **predict** for None timeSeries data evaluation 
   
-```BibTex
-        @InProceedings{Sheshappanavar_2020_CVPR_Workshops,
-            author = {Venkanna Sheshappanavar, Shivanand and Kambhamettu, Chandra},
-            title = {A Novel Local Geometry Capture in PointNet++ for 3D Classification},
-            booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
-            month = {June},
-            year = {2020}
-        }  
-```
+**Reconnecting filaments**
+* run runMain_v2.sh
+* If not using Slurm, check description in slurm_run_mat.py 
 
 
 
