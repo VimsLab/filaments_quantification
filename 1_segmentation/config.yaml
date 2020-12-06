@@ -1,5 +1,29 @@
-i :
-o : 
+# mode : 'predict'
+mode : 'ts'
+# mode : 'train'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v4_skel_brightness_jittering'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/sampletif_erode_v4_org_1.5_smaller_brightness'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/images'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v4_org_1.5_smaller_brightness'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/skel'
+# input_path : '/home/yliu/work/codeToBiomix/data/nov10Done/newAnotated'
+input_path : '/home/yliu/work/codeToBiomix/data/Nov10'
+# output_path : '/home/yliu/work/codeToBiomix/data/nov10Done/FirstTry'
+output_path : '/home/yliu/work/codeToBiomix/data/nov10Done/SecondTry'
+# output_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_weights'
+# weights_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v3_weights'
+# weights_path : '/home/yliu/work/codeToBiomix/data/mtTraining/skel_weights'
+# weights_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v4_org_1.5_smaller_brightness.h5'
+# weights_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v4_input_resize.h5'
+# weights_path : '/home/yliu/work/codeToBiomix/data/nov10Done/FirstTry.h5'
+weights_path : '/home/yliu/work/codeToBiomix/data/nov10Done/Second_40_epochs.h5'
+# weights_path : '/home/yliu/work/codeToBiomix/microtubuleQuant/1_segmentation/models/preTrainedMt/mircrotubule_weights.h5'
+patch_size : 64
+batch_size : 16
+data_type : '*.png'
+nepochs: 40
+
+# python dsc_segmentation.py -m ts -i /home/yliu/work/codeToBiomix/data/kody/Mips_2_Ch2 -o /home/yliu/work/codeToBiomix/data/kody/Mips_2_Ch2_result/ -w models/preTrainedAt/at_weights.h5
 
   # parser.add_argument("-i", "--input-path", type=str, dest='input_path', required=True,
   #                     help="Path to training or prediction data folder")
@@ -12,4 +36,3 @@ o :
   # parser.add_argument('-dt', dest='data_type', default = '*.png', type=str,
   #                     help = "image data type")
   # parser.add_argument("-q", "--quiet", dest='verbose', action="store_false",
-  #                   help="Disables verbose printing")

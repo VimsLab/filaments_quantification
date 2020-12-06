@@ -1,0 +1,25 @@
+mode : 'predict'
+# input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v3'
+input_path : '/home/yliu/work/codeToBiomix/data/mtTraining/images'
+output_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v3_outputs'
+# output_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_weights'
+weights_path : '/home/yliu/work/codeToBiomix/data/mtTraining/erode_v3_weights'
+patch_size : 256
+batch_size : 8
+data_type : '*.png'
+nepochs: 5
+
+# python dsc_segmentation.py -m ts -i /home/yliu/work/codeToBiomix/data/kody/Mips_2_Ch2 -o /home/yliu/work/codeToBiomix/data/kody/Mips_2_Ch2_result/ -w models/preTrainedAt/at_weights.h5
+
+  # parser.add_argument("-i", "--input-path", type=str, dest='input_path', required=True,
+  #                     help="Path to training or prediction data folder")
+  # parser.add_argument("-o", "--output-path", type=str, dest='output_path', required=True,
+  #                     help="Path to save segmented images")
+  # parser.add_argument("-w", "--weights-path", type=str, dest='weights_path', required=True,
+  #                     help="Path to checkpointed weights")
+  # parser.add_argument('-ps', dest='patch_size', default = 128, type=int,
+  #                     help = "patch_size")
+  # parser.add_argument('-dt', dest='data_type', default = '*.png', type=str,
+  #                     help = "image data type")
+  # parser.add_argument("-q", "--quiet", dest='verbose', action="store_false",
+  #                   help="Disables verbose printing")
