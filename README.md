@@ -15,7 +15,7 @@ Environment Configuration
 ----------------------
 Anaconda enviroment file **mtquant.yml**
 
-Matlab for reonnection step (Python version coming out very soon)
+Matlab for reonnection step (Python version coming out soon)
 
 Dataset
 -------
