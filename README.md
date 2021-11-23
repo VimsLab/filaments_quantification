@@ -1,3 +1,5 @@
+The work is done at Vimslab in collaboration with DBI.
+
 filaments_quantification
 -------
 This project includes segmenation, seperation, reconnection three steps as stated in the paper.
